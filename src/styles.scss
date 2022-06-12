@@ -1,6 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
 *{
     font-family: "Inconsolata", sans-serif;
-} html{
+} body, html{
     scroll-behavior: smooth;
+} 
+.dark-theme {
+    color: #eee;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/img/star-min.jpg');
+    background-position: center;
+}
+.con-dark {
+    background-color: rgb(25, 73, 112);
+    color: rgb(209, 207, 204);
+    text-shadow: rgb(26, 38, 67) 2px 1px;
 }

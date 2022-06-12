@@ -7,6 +7,15 @@ declare function handleOrientation(event:any):any;
 @Component({
   selector: 'app-ztzyrant',
   template: `
+  
+  <div class="stickydark">
+    <input type="checkbox" class="checkboxzx" id="checkboxzx">
+    <label for="checkboxzx" class="labelcx">
+      <i class="fa-regular fa-moon"></i>
+      <i class="fa-regular fa-sun"></i>
+      <div class='ballroll'></div>
+    </label>
+  </div>
 
   <div id="homexrd" class="triton">
     <img id="moon" class="moon unselectable" src="/assets/img/fiper/galaxy-min.png" alt="Moon">
@@ -20,7 +29,7 @@ declare function handleOrientation(event:any):any;
       <h2>Who am I?</h2>
     </div>
     <div class="contentzxt">
-      <h2 onclick="darkMode();">Click On Earth</h2>
+      <h2>Click On Earth</h2>
       <div class="arrow" style="margin-top: 10%;">
         <span></span>
         <span></span>
@@ -40,7 +49,7 @@ declare function handleOrientation(event:any):any;
     <div class="timeline">
 
       <div class="centerunder"  data-aos="fade-up" data-aos-offset="300">
-        <div class="contentxz">
+        <div id="areaCon0" class="contentxz">
           <div class="underflex">
             <h2>About Me</h2>
           </div>
@@ -48,7 +57,7 @@ declare function handleOrientation(event:any):any;
       </div>
 
       <div class="containertxz left">
-        <div class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+        <div id="areaCon1" class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <div class="flexi-container">
             <div class="underflex">
               <h2>Who am I?</h2>
@@ -62,7 +71,7 @@ declare function handleOrientation(event:any):any;
       </div>
 
       <div class="containertxz right">
-        <div class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+        <div id="areaCon2" class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <div class="flexi-container">
             <div class="underflex">
             <i class="fa-solid fa-user-astronaut" style="font-size: 8rem;"></i>
@@ -78,7 +87,7 @@ declare function handleOrientation(event:any):any;
       </div>
 
       <div class="containertxz left">
-        <div class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+        <div id="areaCon3" class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <div class="flexi-container">
             <div class="underflex">
               <!-- Edit Disini -->
@@ -96,7 +105,7 @@ declare function handleOrientation(event:any):any;
       </div>
         
         <div class="containertxz right">
-          <div class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <div id="areaCon4" class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="flexi-container">
               <div class="underflex">
                 <!-- Edit Disini -->
@@ -114,7 +123,7 @@ declare function handleOrientation(event:any):any;
         </div>
 
         <div class="centerunder"  data-aos="fade-up" data-aos-offset="300">
-          <div class="contentxz">
+          <div id="areaCon5" class="contentxz">
             <div class="underflex">
               <h2>Web Framework Knowledge</h2>
             </div>
@@ -122,7 +131,7 @@ declare function handleOrientation(event:any):any;
         </div>
 
         <div class="containertxz left">
-          <div class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <div id="areaCon6" class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="flexi-container">
               <div class="underflex">
                 <!-- Edit Disini -->
@@ -142,7 +151,7 @@ declare function handleOrientation(event:any):any;
         </div>
 
         <div class="containertxz right">
-          <div class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <div id="areaCon7" class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="flexi-container">
               <div class="underflex">
                 <!-- Edit Disini -->
@@ -163,7 +172,7 @@ declare function handleOrientation(event:any):any;
         </div>
 
         <div class="containertxz left">
-          <div class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <div id="areaCon8" class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="flexi-container">
               <div class="underflex">
                 <!-- Edit Disini -->
@@ -182,7 +191,7 @@ declare function handleOrientation(event:any):any;
         </div>
 
         <div class="containertxz right">
-          <div class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <div id="areaCon9" class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="flexi-container">
               <div class="underflex">
                 <!-- Edit Disini -->
@@ -202,7 +211,7 @@ declare function handleOrientation(event:any):any;
         </div>
         
         <div class="centerunder"  data-aos="fade-up" data-aos-offset="300">
-          <div class="contentxz">
+          <div id="areaCon10" class="contentxz">
             <div class="underflex">
               <h2>Programing Language Knowledge</h2>
             </div>
@@ -210,7 +219,7 @@ declare function handleOrientation(event:any):any;
         </div>
         
         <div class="containertxz left">
-          <div class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <div id="areaCon11" class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="flexi-container">
               <div class="underflex">
                 <!-- Edit Disini -->
@@ -231,7 +240,7 @@ declare function handleOrientation(event:any):any;
         </div>
 
         <div class="containertxz right">
-          <div class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <div id="areaCon12" class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="flexi-container">
               <div class="underflex">
                 <!-- Edit Disini -->
@@ -252,7 +261,7 @@ declare function handleOrientation(event:any):any;
         </div>
 
         <div class="containertxz left">
-          <div class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <div id="areaCon13" class="contentxz" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="flexi-container">
               <div class="underflex">
                 <!-- Edit Disini -->
@@ -273,7 +282,7 @@ declare function handleOrientation(event:any):any;
         </div>  
 
         <div class="containertxz right">
-          <div class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <div id="areaCon14" class="contentxz" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
             <div class="flexi-container">
               <div class="underflex">
                 <!-- Edit Disini -->
@@ -389,6 +398,11 @@ export class ZtzyrantComponent implements OnInit {
     handleOrientation('event');
     $('img').on('dragstart', function(event) { event.preventDefault(); });
     AOS.init();
+
+    const checkbox = document.getElementById('checkboxzx');
+    checkbox.addEventListener('change', ()=>{
+      this.toggleDarkTheme();
+    })
   }
 
   @HostListener('document:mousemove', ['$event']) 
@@ -406,10 +420,39 @@ export class ZtzyrantComponent implements OnInit {
       moon.style.transform = "translate3d(" + x + "px" + ", " + y + "px, 0)";
       astro.style.transform = "translate3d(" + mx + "px" + ", " + my + "px, 0)";
       rocket.style.transform = "translate3d(" + rx + "px" + ", " + ry + "px, 0)";
-
-      
   }
-  
-  
+  toggleDarkTheme(): void {
+    const allfooter = document.querySelector('footer');
+    const bgmain = document.querySelector('.triton');
+    const balldk = document.querySelector('.ballroll');
+    const bckball = document.querySelector('.labelcx');
+    
+
+    document.body.classList.toggle('dark-theme');
+    allfooter.setAttribute("style", "color: #eee; background: #222225");
+    
+    if(bgmain.getAttribute("style") != null){
+      bgmain.removeAttribute("style");  // turn off dark mode
+      balldk.setAttribute("style", "transform: translateX(0px);");
+      bckball.setAttribute("style", "background-color: #333;");
+    } else{
+      bgmain.setAttribute("style",  // turn on dark mode
+      "background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), "+
+      "url('/assets/img/star-min.jpg'); background-position: center; background-size: auto;");
+      balldk.setAttribute("style", "transform: translateX(24px); background-color: #333;");
+      bckball.setAttribute("style", "background-color: #d7d7d7;");
+    }
+    
+
+    const dkMode = [];
+    for (let i = 0; i < 15; i++) {
+      dkMode[i] = document.getElementById("areaCon" + i);
+    }
+    for(let i = 0; i < 15; i++) {
+      dkMode[i].style.backgroundColor = "rgb(25, 73, 112)";
+    }
+    
+  }
+
 }
 
