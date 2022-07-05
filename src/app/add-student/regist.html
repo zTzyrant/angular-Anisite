@@ -1,0 +1,53 @@
+
+    <section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Contact Us!</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="height: 70vh">
+    <div class="container">
+
+      <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" novalidate>
+        <!--- Name --->
+        <div class="field">
+          <label for="username" class="label">Username</label>
+          <input type="text" name="username" class="input" formControlName="username" required>
+          
+          <div class="help is-error is-danger" *ngIf="username.invalid && username.touched">*Please Fill This Field</div>
+          <div class="help is-error is-danger" *ngIf="username.errors?.['minlength']">*Username shouldn't be less than 5 words</div>
+        </div>
+
+        <!--- Name --->
+        <div class="field">
+          <label for="fullname" class="label">Fullname</label>
+          <input type="text" name="fullname" class="input" formControlName="fullname" required>
+          
+          <div class="help is-error is-danger" *ngIf="fullname.invalid && fullname.touched">*Please Fill This Field</div>
+        </div>
+
+        <!--- Email --->
+        <div class="field">
+          <label for="email" class="label">Email</label>
+          <input type="email" name="email" class="input" formControlName="email" required email>
+
+          <div class="help is-error is-danger" *ngIf="email.invalid && email.touched">*Please Fill Email Field</div>
+        </div>
+
+        <!--- Message --->
+        <div class="field">
+          <label for="note" class="label">Message</label>
+          <textarea name="note" class="textarea" formControlName="note"></textarea>
+        </div>
+        <!-- NOTED KARENA MENGGUNAKAN CLASS studenForm SEGALA INPUT HARUS DISIKIAN formControlName="exmaple" -->
+        <!--- Submit --->
+        <div class="field">
+          <button type="submit" class="button is-info is-primary" [disabled]="studentForm.invalid">
+            Send!
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>

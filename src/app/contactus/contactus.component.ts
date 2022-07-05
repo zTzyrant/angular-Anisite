@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="height: 70vh">
       <div class="container">
 
         <form (ngSubmit)="submitForm()" #contactForm="ngForm">

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "angular-anisite"
+  },
+  "targets": {
+    "angular-anisite": {
+      "hosting": {
+        "angular-Anisite": [
+          "angular-anisite"
+        ]
+      }
+    }
   }
 }

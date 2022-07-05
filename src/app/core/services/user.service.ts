@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import * as CryptoJS from 'crypto-js';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  apiUrl = 'https://api.github.com/users';
+  apiUrl = CryptoJS.AES.decrypt( environment.apiURL, environment.secretkey).toString(CryptoJS.enc.Utf8);
 
   constructor(private http: HttpClient) { }
 
@@ -15,7 +16,7 @@ export class UserService {
    */
   getUsers(){
     return this.http
-    .get(`${this.apiUrl}?per_page=10`);
+    .get(`${this.apiUrl}`);
   }
 
   /**
@@ -23,6 +24,6 @@ export class UserService {
    */
   getUser(username: string){
     return this.http
-    .get(`${this.apiUrl}/${username}`);
+    .get(`${this.apiUrl}&user=${username}`);
   }
 }

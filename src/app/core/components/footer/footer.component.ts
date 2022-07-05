@@ -40,13 +40,13 @@ import { Component, OnInit } from '@angular/core';
           </h4>
           <!-- Column 2 lists with links -->
           <p class="bd-footer-link">
-            <a href="https://">
+            <a routerLink="/anisite">
               <span class="icon-text">
                 <span>Anisite</span>
               </span>
             </a>
               <br />
-              <a href="https://">
+              <a routerLink="/users">
                   <span class="icon-text">
                     <span>Users</span>
                   </span>
@@ -89,7 +89,10 @@ import { Component, OnInit } from '@angular/core';
     </footer>
   `,
   styles: [`
-    
+      footer{
+        color: #eee; 
+        background: #222225
+      }
   `]
 })
 export class FooterComponent implements OnInit {

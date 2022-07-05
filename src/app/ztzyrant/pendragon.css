@@ -1,3 +1,24 @@
+#stickBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  background-color: rgba(11, 11, 11, 0);
+  text-shadow: 2px 1px #24345c;
+  color: #75b0e0;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+#stickBtn:hover {
+  background-color: rgba(36, 36, 36, 0.271);
+}
+
 .scrolldown {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -232,6 +253,7 @@ a.label {
         position: relative;
         max-width: 1200px;
         margin: 0 auto;
+        z-index: 1;
     }
     .timeline::after {
         content: '';

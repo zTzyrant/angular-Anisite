@@ -57,7 +57,8 @@
             "styles": [
               "node_modules/bulma/css/bulma.css",
               "node_modules/aos/dist/aos.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/sweetalert2/src/sweetalert2.scss"
             ],
             "scripts": [
               "node_modules/aos/dist/aos.js",
@@ -114,6 +115,16 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "angular-Anisite:build"
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "angular-Anisite:build:production",
+            "firebaseProject": "angular-anisite",
+            "firebaseHostingSite": "angular-anisite"
           }
         }
       }
