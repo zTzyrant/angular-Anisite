@@ -57,20 +57,20 @@ export class AddStudentComponent implements OnInit {
 
   }
   submitStudentData() {
-    this.validusername();
-    console.log(this.avilableor);
-    if(this.avilableor == false){
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Username Already taken!',
-      })
-    } else {
+    // this.validusername();
+    // console.log(this.avilableor);
+    //if(this.avilableor == false){
+      // Swal.fire({
+      //   icon: 'error',
+      //   title: 'Oops...',
+      //   text: 'Username Already taken!',
+      // })
+    //} else {
       this.crudApi.AddStudent(this.studentForm.value);
       Swal.fire('Good job!',
       'Username: ' + this.studentForm.controls['username'].value + ' successfully added!', 'success')
       this.ResetForm();
-    }
+   // }
     
   }
 }
