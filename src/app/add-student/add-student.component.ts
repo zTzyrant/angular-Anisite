@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurdService } from '../shared/curd.service';
 import Swal from 'sweetalert2';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-student',
@@ -11,9 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class AddStudentComponent implements OnInit {
   public studentForm: FormGroup;
-  somthing: any;
-  avilableor: boolean = true;
-  data: any;
+  x: Subscription;
+  trte: boolean = true;
   constructor(
     public crudApi: CurdService,
     public fb: FormBuilder,
@@ -21,7 +21,6 @@ export class AddStudentComponent implements OnInit {
   ngOnInit() {
     this.crudApi.GetStudentsList();
     this.studenForm();
-    this.validusername();
   }
   studenForm() {
     this.studentForm = this.fb.group({
@@ -43,34 +42,44 @@ export class AddStudentComponent implements OnInit {
   get note() {
     return this.studentForm.get('note');
   }
+
   ResetForm() {
     this.studentForm.reset();
   }
-  validusername(){
-    this.crudApi.GetStudentsList().valueChanges().subscribe(data => { 
-      for (let counter = 0; counter < data.length; counter++) {
-        if("dhito" === data[counter].username){
-          this.avilableor = false;
+
+  submitStudentData() {
+    console.log(this.username.value);
+    this.x = this.crudApi.GetStudentsList().valueChanges().subscribe(data =>{
+      for (let index = 0; index < data.length; index++) {
+        if(data[index].username == this.username.value){
+          this.trte = false;
         }
+      } 
+      // Setelah kurang lebih 3 hari cara terbaik untuk validasi username dengan
+      // menambahkan library rxjs lalu menggunakan fungsi Subscription untuk dapat
+      // menghentikan proses subscribe pada data
+
+      // NOTE: 
+      // data yang di olah menggunakan metode Subscribe dapat direturn 
+      // tetapi tidak dapat digunakan dengan baik
+      if(this.trte == true){
+        this.crudApi.AddStudent(this.studentForm.value);
+        Swal.fire(
+          'Good job!',
+          this.fullname.value +' has added to database!',
+          'success'
+        )
+        this.ResetForm();
+        this.x.unsubscribe();
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Username Already Taken!',
+        })
+        this.trte = true;
+        this.x.unsubscribe();
       }
     })
-
-  }
-  submitStudentData() {
-    // this.validusername();
-    // console.log(this.avilableor);
-    //if(this.avilableor == false){
-      // Swal.fire({
-      //   icon: 'error',
-      //   title: 'Oops...',
-      //   text: 'Username Already taken!',
-      // })
-    //} else {
-      this.crudApi.AddStudent(this.studentForm.value);
-      Swal.fire('Good job!',
-      'Username: ' + this.studentForm.controls['username'].value + ' successfully added!', 'success')
-      this.ResetForm();
-   // }
-    
   }
 }
