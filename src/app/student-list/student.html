@@ -1,7 +1,7 @@
-<section class="section" style="height: 85vh;">
+<section class="section" >
     <h2 class="title has-text-centered">Students List</h2>
-    <a routerLink="/register-student" class="button is-link is-inverted">Add Student</a>
-    <div class="container">
+    <div class="container" style="overflow-x:auto;">
+        <a routerLink="/register-student" class="button is-link is-inverted has-text-centered" style="margin-right: 0; margin-left: 90%;">Add Student</a>
         <table class="table" style="margin: auto; width: 100%;">
             <thead>
                 <tr>
@@ -9,22 +9,21 @@
                 <th scope="col">Username</th>
                 <th scope="col">Fullname</th>
                 <th scope="col">Email</th>
-                <th scope="col">Mobile number</th>
+                <th scope="col">Message</th>
                 <th scope="col" class="has-text-centered" colspan="2">Edit</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let student of Student | paginate: { itemsPerPage: 8, currentPage: p }; let i = index">
+                <tr *ngFor="let student of Student | paginate: { itemsPerPage: 6, currentPage: p }; let i = index">
                 <td scope="row">{{ student.$key }}</td>
                 <td>{{ student.username }}</td>
                 <td>{{ student.fullname }}</td>
                 <td>{{ student.email }}</td>
                 <td>{{ student.note }}</td>
-                <td>
-                    <button class="button is-info is-light" routerLink="/edit-student/{{ student.$key }}" disabled>Edit</button>
-                </td>
-                <td>
-                    <button class="button is-danger is-light" disabled>Delete</button>
+                <td style="text-align: center;">
+                    <button class="button is-info is-light" routerLink="/edit-student/{{ student.$key }}" style="margin: 5px;">Edit</button>
+                
+                    <button class="button is-danger is-light" (click)="deleteStudent(student)" style="margin: 5px;">Delete</button>
                 </td>
                 </tr>
             </tbody>

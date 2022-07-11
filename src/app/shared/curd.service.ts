@@ -23,9 +23,13 @@ export class CurdService {
     });
   }
 
-  GetSudent(id: string){
+  GetDb(){
+    return this.db;
+  }
+
+  GetStudent(id: string){
     this.studentRef = this.db.object('students-list/' + id);
-    return this.studentsRef;
+    return this.studentRef;
   }
 
   GetStudentsList() {

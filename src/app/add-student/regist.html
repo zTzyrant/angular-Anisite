@@ -2,12 +2,12 @@
     <section class="hero is-primary is-bold">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">Contact Us!</h1>
+        <h1 class="title">Register Student!</h1>
       </div>
     </div>
   </section>
 
-  <section class="section" style="height: 70vh">
+  <section class="section">
     <div class="container">
 
       <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" novalidate>
@@ -46,6 +46,9 @@
         <div class="field">
           <button type="submit" class="button is-info is-primary" [disabled]="studentForm.invalid">
             Send!
+          </button>
+          <button type="button" class="button is-info is-danger" (click)="goBack()">
+            Back
           </button>
         </div>
       </form>

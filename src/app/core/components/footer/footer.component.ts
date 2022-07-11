@@ -46,9 +46,9 @@ import { Component, OnInit } from '@angular/core';
               </span>
             </a>
               <br />
-              <a routerLink="/users">
+              <a routerLink="/student">
                   <span class="icon-text">
-                    <span>Users</span>
+                    <span>Student</span>
                   </span>
                 </a>
               <br />
@@ -91,7 +91,7 @@ import { Component, OnInit } from '@angular/core';
   styles: [`
       footer{
         color: #eee; 
-        background: #222225
+        background: #222225;
       }
   `]
 })

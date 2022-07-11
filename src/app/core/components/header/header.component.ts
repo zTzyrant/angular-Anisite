@@ -6,16 +6,17 @@ import { Component, OnInit } from '@angular/core';
     <div class="navbar is-black">
       <div class="navbar-brand">
         <a class="navbar-item has-text-weight-bold" routerLink="/">
-        <div class="waviy">
-   <span style="--i:1">z</span>
-   <span style="--i:2">T</span>
-   <span style="--i:3">z</span>
-   <span style="--i:4">y</span>
-   <span style="--i:5">r</span>
-   <span style="--i:6">a</span>
-   <span style="--i:7">n</span>
-   <span style="--i:8">t</span>
-  </div>
+          <img src="/assets/img/cli.svg" alt="" style="height: 50px; margin-right: 0.4rem;">
+          <div class="waviy">
+            <span style="--i: 1;">z</span>
+            <span style="--i: 2;">T</span>
+            <span style="--i: 3;">z</span>
+            <span style="--i: 4;">y</span>
+            <span style="--i: 5;">r</span>
+            <span style="--i: 6;">a</span>
+            <span style="--i: 7;">n</span>
+            <span style="--i: 8;">t</span>
+          </div>
         </a>
         <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>

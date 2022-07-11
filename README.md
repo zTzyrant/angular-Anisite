@@ -31,3 +31,5 @@ ng serve --host=0.0.0.0 --disable-host-check
 
 ## Important for build
 ng build --prod && firebase deploy
+
+![Visitor Count](https://profile-counter.glitch.me/zTzyrant/count.svg)

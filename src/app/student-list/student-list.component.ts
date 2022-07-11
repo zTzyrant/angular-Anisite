@@ -31,7 +31,6 @@ export class StudentListComponent implements OnInit {
         this.Student.push(a as Student);
       })
     })
-    this.checkusr("zeinstudent");
   }
   dataState() {     
     this.crudApi.GetStudentsList().valueChanges().subscribe(data => {
@@ -43,16 +42,7 @@ export class StudentListComponent implements OnInit {
     })
     
   }
-  checkusr(somthing){
-    console.log(somthing);
-    this.crudApi.GetStudentsList().valueChanges().subscribe(data => {
-      for (let counter = 0; counter < data.length; counter++) {
-        if(somthing === data[counter].username){
-          console.log("equals");
-        }
-      }
-    })
-  }
+
   deleteStudent(student) {
     Swal.fire({
       title: 'Are sure you want to delete this student?',

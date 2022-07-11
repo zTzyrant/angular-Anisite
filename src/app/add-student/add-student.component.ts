@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurdService } from '../shared/curd.service';
 import Swal from 'sweetalert2';
 import { Subscription } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-student',
@@ -17,6 +18,7 @@ export class AddStudentComponent implements OnInit {
   constructor(
     public crudApi: CurdService,
     public fb: FormBuilder,
+    private location: Location
   ) {}
   ngOnInit() {
     this.crudApi.GetStudentsList();
@@ -47,6 +49,10 @@ export class AddStudentComponent implements OnInit {
     this.studentForm.reset();
   }
 
+  goBack() {
+    this.location.back();
+  }
+  
   submitStudentData() {
     console.log(this.username.value);
     this.x = this.crudApi.GetStudentsList().valueChanges().subscribe(data =>{
