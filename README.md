@@ -30,6 +30,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ng serve --host=0.0.0.0 --disable-host-check 
 
 ## Important for build
-ng build --prod && firebase deploy
+ng build --prod && firebase deploy / ng build --prod && ng deploy
 
 ![Visitor Count](https://profile-counter.glitch.me/zTzyrant/count.svg)

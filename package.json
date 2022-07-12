@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod && firebase deploy",
+    "build": "ng build --prod && ng deploy", 
     "watch": "ng build --watch --configuration development",
     "postinstall": "patch-package"
   },
