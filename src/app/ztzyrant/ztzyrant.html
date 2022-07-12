@@ -299,11 +299,63 @@
   <section class="section">
     <div class="container">
       <div class="content">
-        <h2 class="title has-text-centered">Graphic Knowledge</h2>
-        <progress class="progress is-info" value="76" max="100" ></progress>
-        <progress class="progress is-primary" value="40" max="100" ></progress>
-        <progress class="progress is-success" value="20" max="100" ></progress>
-        <progress class="progress is-danger" value="53" max="100" ></progress>
+        <h2 class="title has-text-centered">Users Reviews</h2>
+        <div class="columns is-multiline" *ngIf="feedusr">
+          <div class="column is-4" *ngFor="let user of feedusr | async">
+            <div class="card">
+              <div class="card-content">
+                <h4>{{user.fullname}} <br> 
+                  <i style="font-size: 0.8rem;">email: {{user.email}}
+                  </i>
+                </h4>
+                <p>
+                  Reviews: 
+                  <br>
+                  <i>{{user.review}}</i>
+                </p>
+
+                <span *ngIf="user.star == 1">
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <span *ngIf="user.star == 2">
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <span *ngIf="user.star == 3">
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <span *ngIf="user.star == 4">
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star"></i>
+                </span>
+                <span *ngIf="user.star == 5">
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;" ></i>
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="has-text-centered">Contribute by review this site:</p>
+        <button class="button is-link is-outlined" style="position: absolute; left: 46.7%;" onclick="openModal()">Review</button>
       </div>
     </div>
   </section>
@@ -313,7 +365,71 @@
       <div class="content">
         <h2 class="title has-text-centered">New Feature</h2>
         <button class="button is-link is-outlined" style="position: absolute;
-        left: 45%;" routerLink="/view-students">Student CURD</button>
+        left: 44.8%;" routerLink="/student">Student CURD</button>
       </div>
     </div>
   </section>
+
+
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card" style="border-radius: 0.67rem;">
+      <header class="modal-card-head" style="background-color: hsla(171, 100%, 41%, 0.76);">
+        <p class="modal-card-title">User Review</p>
+        <button class="delete" aria-label="close" onclick="closeModal()"></button>
+      </header>
+      <section class="modal-card-body" style="background-color: rgba(255, 255, 255, 0.92);">
+        <!-- Content ... -->
+        <form [formGroup]="feedbackform" (ngSubmit)="submitFeedbackData()" novalidate>
+          <!--- fullname --->
+          <div class="field">
+            <label for="fullname" class="label">Fullname</label>
+            <input type="text" name="fullname" class="input" formControlName="fullname" required>
+            
+            <div class="help is-error is-danger" *ngIf="fullname.invalid && fullname.touched">*Please Fill This Field</div>
+          </div>
+  
+          <!--- Email --->
+          <div class="field">
+            <label for="email" class="label">Email</label>
+            <input type="email" name="email" class="input" formControlName="email" required email>
+  
+            <div class="help is-error is-danger" *ngIf="email.invalid && email.touched">*Please Fill Email Field</div>
+          </div>
+  
+          <!--- star --->
+          <div class="field">
+            <label for="star" class="label">Star: 
+              <i id="c1x23r1" class="fa-solid fa-star"></i>
+              <i id="c1x23r2" class="fa-solid fa-star"></i>
+              <i id="c1x23r3" class="fa-solid fa-star"></i>
+              <i id="c1x23r4" class="fa-solid fa-star"></i>
+              <i id="c1x23r5" class="fa-solid fa-star"></i>
+            </label>
+            
+            <select class="input" id="star" name="star" formControlName="star" onchange="starX()" required>
+              <option value="" selected>Rate This Site</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <div class="help is-error is-danger" *ngIf="star.invalid && star.touched">*Please Select Star Field</div>
+          </div>
+
+          <!--- Message --->
+          <div class="field">
+            <label for="review" class="label">Message</label>
+            <textarea id="textareatr" name="review" class="textarea" formControlName="review" maxlength="250" onkeyup="templeft()"></textarea>
+            <p id="countrv" class="help is-error"></p>
+          </div>
+          <!-- NOTED KARENA MENGGUNAKAN CLASS studenForm SEGALA INPUT HARUS DISIKIAN formControlName="exmaple" -->
+          <!--- Submit --->
+            <button type="submit" class="button is-info is-primary" [disabled]="feedbackform.invalid">
+              Send!
+            </button>
+        </form>
+      </section>
+    </div>
+  </div>

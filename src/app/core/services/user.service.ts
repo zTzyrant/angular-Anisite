@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
 
-  apiUrl = CryptoJS.AES.decrypt( environment.apiURL, environment.secretkey).toString(CryptoJS.enc.Utf8);
+  apiUrl = "https://api.github.com/users?per_page=10";
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +24,6 @@ export class UserService {
    */
   getUser(username: string){
     return this.http
-    .get(`${this.apiUrl}&user=${username}`);
+    .get(`${this.apiUrl}/${username}`);
   }
 }

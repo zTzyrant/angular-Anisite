@@ -54,7 +54,6 @@ export class AddStudentComponent implements OnInit {
   }
   
   submitStudentData() {
-    console.log(this.username.value);
     this.x = this.crudApi.GetStudentsList().valueChanges().subscribe(data =>{
       for (let index = 0; index < data.length; index++) {
         if(data[index].username == this.username.value){

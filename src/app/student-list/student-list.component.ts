@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { CurdService } from '../shared/curd.service';
 import { Student } from '../shared/student';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-student-list',
   templateUrl: './student.html',
@@ -18,6 +18,7 @@ export class StudentListComponent implements OnInit {
   
   constructor(
     public crudApi: CurdService,
+    private location: Location,
     ){ }
 
   ngOnInit() {
@@ -32,6 +33,11 @@ export class StudentListComponent implements OnInit {
       })
     })
   }
+
+  goback(){
+    this.location.back();
+  }
+
   dataState() {     
     this.crudApi.GetStudentsList().valueChanges().subscribe(data => {
       this.preLoader = false;

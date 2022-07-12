@@ -1,6 +1,9 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as AOS from 'aos';
-
+import { Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
+import { FeedbackService } from '../shared/feedback.service'
 declare function handleOrientation(event:any):any;
 
 
@@ -13,11 +16,24 @@ declare function handleOrientation(event:any):any;
   ]
 })
 export class ZtzyrantComponent implements OnInit {
-  
+  public feedbackform: FormGroup;
+  xs: Subscription;
+  trte: boolean = true;
+  feedusr: any;
+  somearr: any =  [0,1,2,3,4,5];
 
-  constructor() { }
+  constructor(
+    public curdFB: FeedbackService,
+    public fb: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
+    // feedback
+    this.feedusr = this.curdFB.getFeedbackList().valueChanges();
+    this.curdFB.getFeedbackList();
+    this.feedbackForm();
+
+    // OLD
     handleOrientation('event');
     $('img').on('dragstart', function(event) { event.preventDefault(); });
     AOS.init();
@@ -39,10 +55,68 @@ export class ZtzyrantComponent implements OnInit {
         mybutton.style.display = "none";
       }
     }
-
-    
   }
   
+  // feedback
+  feedbackForm(){
+    this.feedbackform = this.fb.group({
+      fullname: ['', [Validators.required, Validators.minLength(5)]],
+      email: [''],
+      star: [''],
+      review: [''],
+    });
+  }
+
+  get fullname(){
+    return this.feedbackform.get('fullname');
+  }
+
+  get email(){
+    return this.feedbackform.get('email');
+  }
+
+  get star(){
+    return this.feedbackform.get('star');
+  }
+
+  get review(){
+    return this.feedbackform.get('review');
+  }
+
+  ResetForm(){
+    this.feedbackform.reset();
+  }
+
+  submitFeedbackData(){
+    this.xs = this.curdFB.getFeedbackList().valueChanges().subscribe(data =>{
+      
+      for (let index = 0; index < data.length; index++) {
+        if(data[index].fullname == this.fullname.value){
+          this.trte = false;
+        }
+      }
+      // if else
+      if(this.trte == true){
+        this.curdFB.addFeedback(this.feedbackform.value);
+        Swal.fire(
+          'Thanks!',
+          'Your Review has added to database!',
+          'success'
+        )
+        this.ResetForm();
+        this.xs.unsubscribe();
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Fullname Already Taken!',
+        })
+        this.trte = true;
+        this.xs.unsubscribe();
+      }
+    })
+  }
+  // end of feedback
 
   @HostListener('document:mousemove', ['$event']) 
   onMouseMove(e: any) {

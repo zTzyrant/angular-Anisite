@@ -8,9 +8,9 @@ import { UserService } from 'src/app/core/services/user.service';
       <div class="columns is-multiline" *ngIf="users">
         <div class="column is-4" *ngFor="let user of users | async">
         <div class="card">
-          <a routerLink="../users/{{user.username}}">
+          <a routerLink="../users/{{user.login}}">
             <div class="card-content">
-              {{user.username}}
+              {{user.login}}
             </div>
           </a>
         </div>
