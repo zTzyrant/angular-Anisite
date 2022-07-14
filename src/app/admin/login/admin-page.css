@@ -1,0 +1,25 @@
+* {
+font-family: 'Nunito Sans', sans-serif;
+}
+
+.somebody {
+background-color: #E4E9F2;
+}
+
+.hero-body {
+justify-content: center;
+}
+
+.login {
+border-radius: 25px;
+padding: 1.5rem;
+box-shadow: 8px 8px 15px #D9DDE6, -8px -8px 15px #EFF5FE;
+}
+
+input {
+background: #D9DDE6 !important;
+}
+
+a {
+font-weight: 600;
+}

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod && ng deploy", 
+    "build": "ng build --prod && ng deploy",
     "watch": "ng build --watch --configuration development",
     "postinstall": "patch-package"
   },
@@ -30,6 +30,7 @@
     "lodash": "^4.17.21",
     "ngx-page-scroll": "^8.0.0",
     "ngx-pagination": "^6.0.2",
+    "ngx-toastr": "^14.3.0",
     "patch-package": "^6.4.7",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.4.19",

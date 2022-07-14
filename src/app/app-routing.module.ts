@@ -8,7 +8,8 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { StudentmainComponent } from './studentmain/studentmain.component';
-
+// admin component
+import { LoginComponent } from './admin/login/login.component';
 const routes: Routes = [{
   path:'',
   component: ZtzyrantComponent
@@ -40,6 +41,9 @@ const routes: Routes = [{
   }, {
     path: 'users',
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+  }, {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

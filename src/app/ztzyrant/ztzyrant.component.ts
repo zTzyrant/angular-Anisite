@@ -4,6 +4,7 @@ import * as AOS from 'aos';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 import { FeedbackService } from '../shared/feedback.service'
+import { ToastrService } from 'ngx-toastr';
 declare function handleOrientation(event:any):any;
 
 
@@ -25,6 +26,7 @@ export class ZtzyrantComponent implements OnInit {
   constructor(
     public curdFB: FeedbackService,
     public fb: FormBuilder,
+    private toast: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class ZtzyrantComponent implements OnInit {
     this.feedusr = this.curdFB.getFeedbackList().valueChanges();
     this.curdFB.getFeedbackList();
     this.feedbackForm();
-
+    this.toast.info('Hello world!', 'Toastr fun!');
     // OLD
     handleOrientation('event');
     $('img').on('dragstart', function(event) { event.preventDefault(); });

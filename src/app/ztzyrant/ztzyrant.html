@@ -302,11 +302,48 @@
         <h2 class="title has-text-centered">Users Reviews</h2>
         <div class="columns is-multiline" *ngIf="feedusr">
           <div class="column is-4" *ngFor="let user of feedusr | async">
-            <div class="card">
+            <div class="card" style="height: 268px;">
               <div class="card-content">
                 <h4>{{user.fullname}} <br> 
-                  <i style="font-size: 0.8rem;">email: {{user.email}}
-                  </i>
+
+                  <span style="font-size: 0.87rem;">
+                    <span *ngIf="user.star == 1">
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span *ngIf="user.star == 2">
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span *ngIf="user.star == 3">
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span *ngIf="user.star == 4">
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span *ngIf="user.star == 5">
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;" ></i>
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                      <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
+                    </span>
+                  </span>
+
                 </h4>
                 <p>
                   Reviews: 
@@ -314,41 +351,7 @@
                   <i>{{user.review}}</i>
                 </p>
 
-                <span *ngIf="user.star == 1">
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </span>
-                <span *ngIf="user.star == 2">
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </span>
-                <span *ngIf="user.star == 3">
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </span>
-                <span *ngIf="user.star == 4">
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star"></i>
-                </span>
-                <span *ngIf="user.star == 5">
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;" ></i>
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                  <i class="fa-solid fa-star" style="color: #ff6000d9;"></i>
-                </span>
+                
 
               </div>
             </div>
