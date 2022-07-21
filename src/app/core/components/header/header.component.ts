@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth.service';
+import { CurdService } from 'src/app/shared/curd.service';
+import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -31,6 +36,11 @@ import { Component, OnInit } from '@angular/core';
           <a class="navbar-item" routerLink="/anisite">Anisite</a>
           <a class="navbar-item" routerLink="/contactus">Contact Us</a>
           <a class="navbar-item" routerLink="/student">Student</a>
+          <a class="navbar-item" *ngIf="authService.currentUser$ | async as user;">
+            <button class="button is-info is-outlined" (click)="logut()">
+              <i class="fa-solid fa-right-from-bracket" style="margin-right: 0.25rem; text-decoration: none;"></i>Sign Out
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -58,7 +68,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public crudApi: CurdService,
+    private location: Location,
+    public authService: AuthService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
 
@@ -72,6 +87,36 @@ export class HeaderComponent implements OnInit {
           $(".navbar-menu").toggleClass("is-active");
       });
     });
+  }
+
+  logut(){
+    this.authService.logout().subscribe(() => {
+      
+      Swal.fire({
+        title: 'Are you want to login again?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!',
+        cancelButtonText: 'No',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Redirecting!',
+            'Redirecting to login page.',
+            'success'
+          )
+          this.router.navigate(['/login']);
+        } else {
+          Swal.fire(
+            'Logged Out!',
+            'Success Logged out.',
+            'success'
+          )
+        }
+      })
+    })
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CurdService } from '../shared/curd.service';
 import Swal from 'sweetalert2';
 import { Subscription } from 'rxjs';
@@ -12,12 +12,12 @@ import { Location } from '@angular/common';
   ]
 })
 export class AddStudentComponent implements OnInit {
-  public studentForm: FormGroup;
+  public studentForm: UntypedFormGroup;
   x: Subscription;
   trte: boolean = true;
   constructor(
     public crudApi: CurdService,
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
     private location: Location
   ) {}
   ngOnInit() {

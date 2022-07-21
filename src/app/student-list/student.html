@@ -1,4 +1,4 @@
-<section class="section" >
+<section class="section" *ngIf="authService.currentUser$ | async as user; else some" >
     <h2 class="title has-text-centered">Students List</h2>
     <div class="container" style="overflow-x:auto;">
         <a routerLink="/register-student" class="button is-link is-inverted has-text-centered" style="margin-right: 0; margin-left: 90%;">Add Student</a>
@@ -34,3 +34,13 @@
         </table>
     </div>
 </section>
+
+
+<ng-template #some> 
+    <section class="section" style="height: 80vh;">
+        <div class="container">
+            <h2>Please Login To Access This Page</h2>
+            <button class="button is-block is-fullwidth is-primary is-medium is-rounded" routerLink="/login">Login</button>
+        </div>
+    </section>
+</ng-template>

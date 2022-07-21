@@ -27,6 +27,9 @@ import {AngularFireModule} from '@angular/fire/compat';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LoginComponent } from './admin/login/login.component';
+import { QrgenComponent } from './qrgen/qrgen.component';
+
+import { QRCodeModule } from 'angularx-qrcode';
 @NgModule({ // Deklarasi untuk app disini
   declarations: [
     AppComponent,
@@ -38,7 +41,8 @@ import { LoginComponent } from './admin/login/login.component';
     EditStudentComponent,
     StudentListComponent,
     StudentmainComponent,
-    LoginComponent
+    LoginComponent,
+    QrgenComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,9 @@ import { LoginComponent } from './admin/login/login.component';
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    //qr gen
+    QRCodeModule
   ],
   providers: [
 

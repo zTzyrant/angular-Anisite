@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CurdService } from '../shared/curd.service';
 import { Location } from '@angular/common';
@@ -15,7 +15,7 @@ export class EditStudentComponent implements OnInit {
   student: any;
   constructor(
     private crudApi: CurdService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private location: Location,
     private actRoute: ActivatedRoute,
     private router: Router,

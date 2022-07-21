@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import * as AOS from 'aos';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -14,10 +14,11 @@ declare function handleOrientation(event:any):any;
   styleUrls:[
     './pendragon.css',
     './bckgrdani.css',
+    './temp.css',
   ]
 })
 export class ZtzyrantComponent implements OnInit {
-  public feedbackform: FormGroup;
+  public feedbackform: UntypedFormGroup;
   xs: Subscription;
   trte: boolean = true;
   feedusr: any;
@@ -25,7 +26,7 @@ export class ZtzyrantComponent implements OnInit {
 
   constructor(
     public curdFB: FeedbackService,
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
     private toast: ToastrService,
   ) { }
 
@@ -34,7 +35,7 @@ export class ZtzyrantComponent implements OnInit {
     this.feedusr = this.curdFB.getFeedbackList().valueChanges();
     this.curdFB.getFeedbackList();
     this.feedbackForm();
-    this.toast.info('Hello world!', 'Toastr fun!');
+    //this.toast.info('Hello world!', 'Toastr fun!');
     // OLD
     handleOrientation('event');
     $('img').on('dragstart', function(event) { event.preventDefault(); });

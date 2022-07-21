@@ -3,12 +3,17 @@ import Swal from 'sweetalert2';
 import { CurdService } from '../shared/curd.service';
 import { Student } from '../shared/student';
 import { Location } from '@angular/common';
+import { AuthService } from '../shared/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-student-list',
   templateUrl: './student.html',
   styles: [``]
 })
 export class StudentListComponent implements OnInit {
+  // user
+  user$ = this.authService.currentUser$;
+
   something: any;
   p: number = 1;
   Student: Student[];
@@ -19,6 +24,8 @@ export class StudentListComponent implements OnInit {
   constructor(
     public crudApi: CurdService,
     private location: Location,
+    public authService: AuthService,
+    private router: Router,
     ){ }
 
   ngOnInit() {
@@ -31,6 +38,12 @@ export class StudentListComponent implements OnInit {
         a['$key'] = item.key;
         this.Student.push(a as Student);
       })
+    })
+  }
+
+  logut(){
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/login']);
     })
   }
 

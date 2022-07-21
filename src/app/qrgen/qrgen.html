@@ -1,0 +1,36 @@
+<div class="container is-widescreen">
+    <section class="section is-medium">
+        <div class="card">
+            <h1 class="title has-text-centered">QR Code Generator</h1>
+            <div class="card-image" style="max-height: 400px;">
+                <figure class="image has-text-centered">
+                <qrcode id="qrdat" (qrCodeURL)="onChangeURL($event)" [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                <div class="media-content">
+                    <p class="title is-4 has-text-centered">Generate Your Own QR</p>
+                    <p class="subtitle is-6 has-text-centered">by angularx-qrcode</p>
+                    <div class="field is-horizontal">
+                        <a id="hidden" class="button is-link" style="display: none;" [href]="qrCodeDownloadLink" download="qrcode">Download QR</a>
+                    </div>
+                </div>
+                </div>
+            
+                <div class="content">
+                    <div class="field is-horizontal">
+                        <label for="txt" style="margin-left: auto; margin-right: auto;">Please Input Text or Link: </label>
+                    </div>
+                    <div class="field is-horizontal">
+                        <input id="txt" class="input has-text-centered" type="text" placeholder="Please Input Text" style="max-width: 400px; margin-left: auto; margin-right: auto;">
+                    </div>
+                    <div class="field is-horizontal">
+                        <button class="button is-link is-outlined" style="width: 400px; margin-left: auto; margin-right: auto;" (click)="someqr()">Submit</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

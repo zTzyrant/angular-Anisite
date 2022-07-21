@@ -10,6 +10,8 @@ import { EditStudentComponent } from './edit-student/edit-student.component';
 import { StudentmainComponent } from './studentmain/studentmain.component';
 // admin component
 import { LoginComponent } from './admin/login/login.component';
+// qr gen
+import { QrgenComponent } from './qrgen/qrgen.component';
 const routes: Routes = [{
   path:'',
   component: ZtzyrantComponent
@@ -44,6 +46,9 @@ const routes: Routes = [{
   }, {
     path: 'login',
     component: LoginComponent
+  }, {
+    path: 'qrgen',
+    component: QrgenComponent
   }
 ];
 
